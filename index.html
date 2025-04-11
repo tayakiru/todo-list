@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
+    <title>ToDo App</title>
+
+</head>
+<body>
+    <h1>ToDo App</h1>
+    <div class="todo-add">
+
+        <form action="">
+            <label for="todo-add__title-input">
+                <input id="todo-add__title-input" type="text" placeholder="Назовите вашу задачу" autocomplete="off" maxlength="48">
+            </label>
+            <label for="todo-add__desc-input">
+                <textarea id="todo-add__desc-input" placeholder="Описание к задаче (необязательно)" autocomplete="off"></textarea>
+            </label>
+            <button class="todo-add__add-button add-button" id="add-button">ADD</button>
+        </form>
+
+        <ul id="todo-list" class="todo-add__todo-list" >
+            <!--<li class="todo-list__item" id="todo-item">
+                     <div class="title">
+                         <input class="item__checkbox checkbox" type="checkbox" id="todo-checkbox-1">
+                         <label class="custom-checkbox" for="todo-checkbox-1">
+                             <svg fill="transparent" xmlns="http://www.w3.org/2000/svg"
+                                  height="24px" viewBox="0 -960 960 960"
+                                  width="24px"><path
+                                     d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                             </svg>
+                         </label>
+                         <label for="todo-checkbox-1" class="todo-item__title">
+                             покакать
+                         </label>
+                             <div class="todo-list__buttons">
+                                 <button class="item__open-desc-button open-desc-button" id="open-desk-button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                          viewBox="0 -960 960 960" width="24px" fill="var(--color-gray)">
+                                         <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                     </svg>
+                                 </button>
+                                 <button class="item__delete-button delete-button" id="delete-button">
+                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                          height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--color-gray)">
+                                         <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0
+                                 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                                     </svg>
+                                 </button>
+                            </div>
+                     </div>
+                <div class="description">
+                    <label for="open-desk-button" class="todo-item__desc">
+                        п
+                    </label>
+                </div>
+            </li>!-->
+        </ul>
+
+    </div>
+</body>
+</html>

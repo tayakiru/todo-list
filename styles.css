@@ -1,0 +1,423 @@
+@font-face {
+    font-family: 'Mplus';
+    src: url('./fonts/RoundedMplus1c-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mplus';
+    src: url('./fonts/RoundedMplus1c-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+    list-style: none;
+}
+
+:where(address[class]) {
+    font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    height: 100%;
+    /**
+      Убираем скачок интерфейса по горизонтали
+      при появлении / исчезновении скроллбара
+     */
+    scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    min-height: 100%;
+    /**
+      Унифицированный интерлиньяж
+     */
+    line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+    display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+    cursor: pointer;
+}
+
+
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+    transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+    border-collapse: collapse;
+    border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+
+:root  {
+    --font-family-base: 'Mplus', sans-serif;
+    --color-dark: #101114;
+    --color-dark-aalternate: #1C1D20;
+    --color-gray: #4A4D57;
+    --aquamarine-color: #00FFC4;
+    --color-white: #F9F9F9;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    color: var(--color-white);
+    font-family: var(--font-family-base), sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    padding: 10px;
+    background-color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    position: relative;
+}
+
+h1 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--aquamarine-color);
+    text-align: center;
+}
+
+.todo-add {
+    position: relative;
+    display: flex;
+    width: 700px;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-add__title-input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 20px;
+    padding: 12px 20px;
+    background: none;
+    border: 2px solid var(--color-gray);
+    border-radius: 1000px;
+    font-family: inherit;
+    color: var(--color-white);
+    caret-color: var(--aquamarine-color);
+    margin-bottom: 20px;
+}
+
+#todo-add__title-input:focus {
+    outline: none;
+}
+
+#todo-add__desc-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 20px;
+    min-height: 150px;
+    padding: 10px;
+    display: flex;
+    font-size: 20px;
+    flex-wrap: wrap;
+    background: none;
+    border: 2px solid var(--color-gray);
+    border-radius: 20px;
+    font-family: inherit;
+    color: var(--color-white);
+    caret-color: var(--aquamarine-color);
+    margin-bottom: 20px;
+    resize: none;
+}
+
+#todo-add__desc-input:focus {
+    outline: none;
+}
+
+.add-button {
+    position: absolute;
+    height: 57px;
+    right: 0;
+    border-radius: 1000px;
+    top: 0;
+    font-size: 20px;
+    background-color: var(--aquamarine-color);
+    padding: 0 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.todo-list__item {
+    margin-bottom: 40px;
+}
+
+#todo-item {
+    background-color: var(--color-dark-aalternate);
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 15px;
+    border-radius: 15px;
+    flex-grow: 1;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.item__checkbox {
+    display: none;
+}
+
+.todo-item__title {
+    padding: 15px;
+    flex-grow: 1;
+    transition-duration: .2s;
+}
+
+.todo-list__buttons {
+    display: flex;
+    column-gap: 10px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.open-desc-button, .delete-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.open-desc-button:hover svg {
+    fill: antiquewhite;
+    transition-duration: .2s;
+}
+
+.delete-button:hover svg{
+    fill: #FF0033;
+    transition-duration: .2s;
+}
+
+.custom-checkbox {
+    border: 2px solid var(--aquamarine-color);
+    border-radius: 50%;
+    max-width: 20px;
+    max-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition-duration: .2s;
+    cursor: pointer;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.description {
+    min-height: 20px;
+    word-wrap: break-word;
+    border-radius: 20px;
+    border:  2px solid var(--color-gray);
+    padding: 10px;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+    background-color: var(--aquamarine-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg{
+    fill: var(--color-dark)
+}
+
+input[type="checkbox"]:checked ~ .todo-item__title{
+    text-decoration: line-through;
+    color: var(--color-gray);
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+    #add-button {
+        position: unset;
+        width: 100%;
+        padding: 15px;
+        height: auto;
+    }
+    h1 {
+        margin-top: 50px;
+        font-size: 15vw;
+    }
+}
+
+
+
+
