@@ -21,7 +21,7 @@ addTodo = () => {
 
         todoLI.innerHTML = `
             <div class="title">
-                <input class="item__checkbox checkbox" type="checkbox" id="checkbox-${todoID}">
+                <input class="item__checkbox checkbox" type="checkbox" id=checkbox-${todoID}">
                 <label class="custom-checkbox" for="checkbox-${todoID}">
                     <svg fill="transparent" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                         <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
@@ -43,7 +43,7 @@ addTodo = () => {
                     </button>
                 </div>
             </div>
-            <div class="description">
+            <div class="description visually-hidden">
                 <label for="open-desc-button" class="todo-item__desc">
                     ${todoDescText}
                 </label>
@@ -60,9 +60,16 @@ addTodo = () => {
         const deleteButton = todoLI.querySelector('.item__delete-button');
         deleteButton.onclick = () => {
             todoLI.remove();
+        }
+        const openDesc = todoLI.querySelector('.item__open-desc-button');
+        const description = todoLI.querySelector('.description')
 
+
+        openDesc.onclick = () => {
+            description.classList.toggle('visually-hidden');
         }
     }
 }
+
 
 
