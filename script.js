@@ -61,13 +61,6 @@ addTodo = () => {
         deleteButton.onclick = () => {
             todoLI.remove();
 
-        const openDesc = todoLI.querySelector('.item__open-desc-button');
-        const description = todoLI.querySelector('.description')
-
-
-        openDesc.onclick = () => {
-            description.classList.toggle('visually-hidden');
-        }
         }
     }
 }
