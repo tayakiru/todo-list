@@ -300,6 +300,7 @@ h1 {
 }
 
 .add-button {
+    text-transform: uppercase;
     position: absolute;
     height: 57px;
     right: 0;
@@ -314,6 +315,10 @@ h1 {
 
 .todo-list__item {
     margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid var(--color-gray);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #todo-item {
@@ -400,6 +405,19 @@ input[type="checkbox"]:checked ~ .custom-checkbox svg{
 input[type="checkbox"]:checked ~ .todo-item__title{
     text-decoration: line-through;
     color: var(--color-gray);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 @media (max-width: 500px) {

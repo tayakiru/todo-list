@@ -43,7 +43,7 @@ addTodo = () => {
                     </button>
                 </div>
             </div>
-            <div class="description">
+            <div class="description visually-hidden">
                 <label for="open-desc-button" class="todo-item__desc">
                     ${todoDescText}
                 </label>
@@ -61,6 +61,14 @@ addTodo = () => {
         deleteButton.onclick = () => {
             todoLI.remove();
         }
+
+        const openDesc = todoLI.querySelector('.item__open-desc-button');
+        const description = todoLI.querySelector('.description');
+
+        openDesc.onclick = () => {
+            description.classList.toggle('visually-hidden');
+        }
+
     }
 }
 
