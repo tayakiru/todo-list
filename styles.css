@@ -314,10 +314,6 @@ h1 {
 
 .todo-list__item {
     margin-bottom: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 20px;
-    border: 2px solid var(--color-gray);
 }
 
 #todo-item {
@@ -391,19 +387,6 @@ h1 {
     border-radius: 20px;
     border:  2px solid var(--color-gray);
     padding: 10px;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
 }
 
 input[type="checkbox"]:checked ~ .custom-checkbox {
